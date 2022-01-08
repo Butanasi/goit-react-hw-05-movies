@@ -1,0 +1,67 @@
+.Searchbar {
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  background-color: lightslategrey;
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14);
+}
+
+.SearchForm {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 5px;
+}
+
+.SearchFormButton {
+  font-weight: var(--font-title);
+  font-size: 16px;
+  line-height: 1.87;
+  text-align: center;
+  letter-spacing: 0.06em;
+
+  color: #2196f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 10px 0;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 4px;
+  border: 0;
+  transition: color 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:hover,
+  &:focus {
+    color: maroon;
+  }
+}
+
+.Input {
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+  height: 30px;
+}
+
+.Input::placeholder {
+  font: inherit;
+  font-size: 18px;
+}

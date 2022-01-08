@@ -1,0 +1,53 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  gap: 30px;
+  padding: 20px;
+}
+.Item {
+  max-height: 300px;
+  border-radius: 4px;
+}
+
+.poster {
+  border-radius: 10px;
+  width: 200px;
+  height: 230px;
+}
+
+.Title {
+  margin-top: 4px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+}
+.about {
+  margin-top: 5px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+}
+
+.italic {
+  margin-left: 3px;
+}
+
+@media screen and(min-width: 480px) {
+  .list {
+    grid-template-columns: repeat(2, 100px);
+  }
+}
+@media screen and(min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(4, 100px);
+    justify-content: center;
+  }
+}
+
+@media screen and(min-width: 1200px) {
+  .list {
+    grid-template-columns: repeat(6, 200px);
+  }
+}
