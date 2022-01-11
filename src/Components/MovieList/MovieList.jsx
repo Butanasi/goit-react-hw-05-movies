@@ -1,15 +1,29 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../const';
 import style from './MovieList.module.scss';
 import noImg from '../../images/Movie.jpg';
+
 export const MovieList = ({ movies }) => {
+  const location = useLocation();
+  const movieLoc = `/movies${location.search}`;
+  const click = () => {
+    if (location.search === '') {
+      localStorage.setItem('prevLoc', JSON.stringify(ROUTES.HOME));
+    } else {
+      localStorage.setItem('prevLoc', JSON.stringify(movieLoc));
+    }
+  };
   return (
     <div className={style.Container}>
       <ul className={style.gallery}>
         {movies.map(({ title, id, poster_path }) => (
           <li key={id} className={style.galleryItem}>
-            <Link to={`${ROUTES.MOVIES}/${id}`} className={style.galleryLink}>
+            <Link
+              onClick={click}
+              to={`${ROUTES.MOVIES}/${id}`}
+              className={style.galleryLink}
+            >
               <img
                 src={
                   poster_path
@@ -36,4 +50,5 @@ MovieList.propTypes = {
       poster_path: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  // location: PropTypes.string.isRequired,
 };

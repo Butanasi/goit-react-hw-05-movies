@@ -7,7 +7,6 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { ButtonLoadMore } from '../Components/ButtonLoadMore';
 import { Spinner } from '../Components/Loader/Spinner';
 import { SpinnerBig } from '../Components/Loader/SpinnerBig';
-
 function MoviesPage() {
   const location = useLocation();
   const history = useHistory();
@@ -40,13 +39,13 @@ function MoviesPage() {
     history.push({
       ...location,
       search: `query=${searchQue}`,
-      // search: `query=${searchQue}`,
     });
   };
   const loadMore = () => {
     setLoading(true);
     setPage(prevState => prevState + 1);
   };
+
   const btn = !(movies.length < 20);
   return (
     <>

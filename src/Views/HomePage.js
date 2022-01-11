@@ -4,7 +4,10 @@ import * as restApi from '../RestApi';
 import { ButtonLoadMore } from '../Components/ButtonLoadMore';
 import { Spinner } from '../Components/Loader/Spinner';
 import style from './HomePage.module.css';
- function HomePage() {
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+
+function HomePage() {
+  const location = useLocation();
   const [movies, setMovies] = useState(null);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -20,7 +23,6 @@ import style from './HomePage.module.css';
     restApi.fetchOnHomePage(page).then(({ results }) => {
       setMovies(prevState => [...prevState, ...results]);
     });
-
     setLoading(false);
   }, [page]);
 
@@ -34,7 +36,7 @@ import style from './HomePage.module.css';
       {movies && (
         <>
           <h1 className={style.title}>Tranding today</h1>
-          <MovieList movies={movies} />
+          <MovieList movies={movies} location={location} />
           <ButtonLoadMore nextPage={loadMore} loading={loading}>
             <Spinner />
           </ButtonLoadMore>
@@ -43,4 +45,4 @@ import style from './HomePage.module.css';
     </div>
   );
 }
-export default HomePage
+export default HomePage;
